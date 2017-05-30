@@ -1,6 +1,7 @@
 package com.yunmin.collections;
 
 import java.util.Arrays;
+import java.util.UUID;
 
 /**
  * Created by luoyunmin on 2017/5/28.
@@ -16,6 +17,9 @@ public class BinarySearchMain {
             System.out.println(binarySearch(position, array, 0, array.length));
             position++;
         }
+
+        UUID uuid=UUID.randomUUID();
+        System.out.println(uuid);
     }
 
     public static int binarySearch(int key, int[] array, int startIndex, int endIndex) {
