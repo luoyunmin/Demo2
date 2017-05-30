@@ -1,0 +1,32 @@
+ext {
+    //Android
+    androidBuildToolsVersion = "25.0.0"
+    androidCompileSdkVersion = 25
+    androidTargetSdkVersion = 25
+
+    //librarys
+    daggerVersion = '2.0.2'
+    retrofitVersion = ''
+    glideVersion = ''
+    rxJavaVersion = ''
+    rxAndroidVersion = ''
+    butterKnifeVersion = ''
+    okHttpVersion = ''
+    recyclerViewVersion = ''
+    support_v7 = ''
+
+    appDependencies = [
+            daggerCompile: "",
+            dagger       : "",
+            retrofit     : "",
+            okHttp       : "",
+            butterKnife  : "",
+            recyclerView : "",
+            gilde        : "",
+            rxJava       : "",
+            rxAndroid    : "",
+            v7           : ""
+
+    ]
+
+}

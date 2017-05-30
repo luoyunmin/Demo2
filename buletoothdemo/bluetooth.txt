@@ -1,0 +1,35 @@
+蓝牙4.0标准包含两个蓝牙标准，一个经典蓝牙，一个低功耗蓝牙（BLE）
+
+了解Bluetooth相关类的功能
+BlueloothEnabler:界面上蓝牙开启、关闭的开光就是他
+BluetoothSettings:主界面，用于管理配对和连接设备
+LocalBluetoothManager:提供了蓝牙API的简单接口调用，这里只是开始
+CachedBluetoothDevice:描述蓝牙设备的类，对BluetoothDevice的再封装
+BluetoothPairingDialog:配对提示框
+BluetoothPhoneService:蓝牙接听挂断电话会用到这个
+
+AdapterService:4.2后才有的代码，蓝牙打开、关闭、扫描、扫描都会走到这里。
+替代了Bluetooth4.1之前的BluetoothService,原来的工作就由这个类来完成。
+在4.1之前只有opp协议相关应用的代码，也就是文件传输部分。
+
+a2dp蓝牙立体声，和蓝牙耳机听歌有关，另外有个avrcp-音频/视频远程控制文件，由于听歌暂停，上下曲选择
+btservice关于蓝牙操作的基本目录，一切由此开始
+hdp蓝牙关于医疗方面的应用Bluetooth health device profile
+hfp和电话相关，蓝牙接听、挂断电话Hands-free Profile
+hid人机交互接口，蓝牙鼠标键盘什么的就是这个了
+opp文件传输
+pan描述两个或更多个Bluetooth设备构成一个即时网络，和网络有关的还有串行端口功能（SPP），拨号网络功能（DUN）
+pbap电话号码簿访问协议（phonebook access profile）
+
+BluetoothA2dp           a2dp的功能实现
+BluetoothAdapter        蓝牙action的定义，虚拟设备属性以及操作方法
+BlueAudioGateway        蓝牙语音网关
+BluetoothClass          蓝牙设备类型定义
+BluetoothDevice         蓝牙设备属性
+BlueDevicePicker        定义远程蓝牙设备的特性，比如认证，设备类型等
+BluetoothHeadset        定义蓝牙headset功能的属性以及接口
+BluetoothInputStream    蓝牙输入流接口的实现
+BluetoothOutputStream   蓝牙输出流接口的实现
+BluetoothServerSocket   蓝牙Socket服务端具备的方法
+BluetoothSocket         蓝牙Socket封装
+BluetoothUuid           蓝牙uuid的定义以及uuid的解析

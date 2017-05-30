@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.yunmin.buletooth.MainActivity">
+
+    <Button
+        android:id="@+id/open_bluetooth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="open" />
+
+    <Button
+        android:id="@+id/close_bluetooth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="close" />
+
+    <Button
+        android:id="@+id/api_open_bluetooth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="调用系统API打开蓝牙" />
+
+    <Button
+        android:id="@+id/search_bluetooth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="搜索蓝牙设备" />
+
+    <Button
+        android:id="@+id/my_bluetooth_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="本机蓝牙信息" />
+
+    <Button
+        android:id="@+id/bonded_bluetooth_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="已配对蓝牙设备" />
+
+    <Button
+        android:id="@+id/bonded_bluetooth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="配对" />
+
+    <Button
+        android:id="@+id/cancel_bonded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="取消配对" />
+
+    <Button
+        android:id="@+id/bluetooth_communication"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="蓝牙通信" />
+
+    <TextView
+        android:id="@+id/bluetooth_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

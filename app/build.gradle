@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
     defaultConfig {
@@ -11,6 +12,11 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         manifestPlaceholders = [UMENG_CHANNEL_VALUE: "default_channel"]
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
     }
     buildTypes {
         release {
@@ -30,11 +36,21 @@ android {
         }
     }
     productFlavors {
-        default_channel {}
-        wandoujia {}
-        baidu {}
-        xiaomi {}
-        huawei {}
+        default_channel {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: default_channel]
+        }
+        wandoujia {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: wandoujia]
+        }
+        baidu {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: baidu]
+        }
+        xiaomi {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: xiaomi]
+        }
+        huawei {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: huawei]
+        }
     }
     productFlavors.all { flavor ->
         flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
@@ -46,7 +62,8 @@ android {
                 output ->
                     def oldFile = output.outputFile
                     if (variant.buildType.name.equals("release")) {
-                        def releaseApkName = getProject().name + "_v${defaultConfig.versionName}_${new Date().format("yyyy-mm-dd", TimeZone.getTimeZone("UTC"))}_"+variant.productFlavors[0].name + "release.apk"
+                        def releaseApkName = getProject().name + "_v${defaultConfig.versionName}_${new Date().format("yyyy-mm-dd", TimeZone.getTimeZone("UTC"))}_" + variant.productFlavors[0].name + "_release.apk"
+                        println(releaseApkName)
                         output.outputFile = new File(oldFile.parent, releaseApkName)
                     }
             }
@@ -56,16 +73,18 @@ android {
 }
 //读取签名配置文件
 def getSigningProperties() {
-
-    def propFile = file('signing.properties')
+    def propFile = file('../buildSystem/signing.properties')
     if (propFile.canRead()) {
         def Properties props = new Properties()
         props.load(new FileInputStream(propFile))
         if (props != null && props.containsKey('STORE_FILE') && props.containsKey('STORE_PASSWORD') &&
                 props.containsKey('KEY_ALIAS') && props.containsKey('KEY_PASSWORD')) {
             android.signingConfigs.release.storeFile = file(props['STORE_FILE'])
+
             android.signingConfigs.release.storePassword = props['STORE_PASSWORD']
+
             android.signingConfigs.release.keyAlias = props['KEY_ALIAS']
+
             android.signingConfigs.release.keyPassword = props['KEY_PASSWORD']
         } else {
             println 'signing.properties found but some entries are missing'
