@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button searchBluetooth;
     Button myDevice, bondedDevice;
     Button bondBluetooth, cancelBonded;
-    Button bluetoothCommunication;
+    Button bluetoothServer, bluetoothClient;
 
     BluetoothAdapter bluetoothAdapter;
     private static final int REQUEST_OPEN_CODE = 0x001;
@@ -131,7 +131,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         myDevice = (Button) findViewById(R.id.my_bluetooth_info);
         bondedDevice = (Button) findViewById(R.id.bonded_bluetooth_info);
 
-        bluetoothCommunication = (Button) findViewById(R.id.bluetooth_communication);
+        bluetoothServer = (Button) findViewById(R.id.bluetooth_server);
+        bluetoothClient = (Button) findViewById(R.id.bluetooth_client);
         //配对和取消配对
         bondBluetooth = (Button) findViewById(R.id.bonded_bluetooth);
         cancelBonded = (Button) findViewById(R.id.cancel_bonded);
@@ -148,10 +149,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bondedDevice.setOnClickListener(this);
         bondBluetooth.setOnClickListener(this);
         cancelBonded.setOnClickListener(this);
-        bluetoothCommunication.setOnClickListener(this);
+        bluetoothServer.setOnClickListener(this);
+        bluetoothClient.setOnClickListener(this);
 
         registerBluetoothRrceiver();
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        //确定有蓝牙
         bluetoothAdapter.startDiscovery();
     }
 
@@ -234,9 +237,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(this, "没有已经配对的设备", Toast.LENGTH_SHORT).show();
                 }
                 break;
-            case R.id.bluetooth_communication:
-                Intent intent = new Intent(this, CommunicationActivity.class);
-                startActivity(intent);
+            case R.id.bluetooth_server:
+                Intent serverIntent = new Intent(this, ServerActivity.class);
+                startActivity(serverIntent);
+                break;
+            case R.id.bluetooth_client:
+                Intent clientIntent = new Intent(this, ClientActivity.class);
+                startActivity(clientIntent);
                 break;
             default:
                 Toast.makeText(this, "别瞎点", Toast.LENGTH_SHORT).show();

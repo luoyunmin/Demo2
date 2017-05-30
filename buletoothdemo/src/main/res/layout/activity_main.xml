@@ -55,10 +55,16 @@
         android:text="取消配对" />
 
     <Button
-        android:id="@+id/bluetooth_communication"
+        android:id="@+id/bluetooth_server"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="蓝牙通信" />
+        android:text="服务端" />
+
+    <Button
+        android:id="@+id/bluetooth_client"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="客户端" />
 
     <TextView
         android:id="@+id/bluetooth_info"

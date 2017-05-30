@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CommunicationActivity" />
+        <activity android:name=".ServerActivity" />
+        <activity android:name=".ClientActivity" />
     </application>
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
