@@ -252,3 +252,5 @@ if(bondedDevice.size() > 0){
 
 建立连接需要一个UUID，并且这个UUID在BluetoothServerSocket和BluetoothSocket相同才能建立连接，
 我先随便生成一个UUID，然后贴过来。
+
+6.ble,蓝牙分为两种模式，一为传统蓝牙，二位ble(Bluetooth Low energy)。
