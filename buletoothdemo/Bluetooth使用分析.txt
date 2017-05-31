@@ -253,4 +253,13 @@ if(bondedDevice.size() > 0){
 建立连接需要一个UUID，并且这个UUID在BluetoothServerSocket和BluetoothSocket相同才能建立连接，
 我先随便生成一个UUID，然后贴过来。
 
-6.ble,蓝牙分为两种模式，一为传统蓝牙，二位ble(Bluetooth Low energy)。
+
+
+（六）ble,蓝牙分为两种模式，一为传统蓝牙，二位ble(Bluetooth Low energy)。，这里开始就介绍BLE
+获取BluetoothAdapter，因为ble是在API 18才开始加入的，那我们就直接通过BluetoothManager来获取BluetoothAdapter
+然后我们就开始扫描周边设备startLeScan，然后发现startLescan这个方法竟然在API 21被否决了，再次寻找其它方法，看下在API18
+以后是否有其它的方法扫描设备。然后看了一下Android 5.0的改变，发现他的API变成了通过BluetoothScanner.startScan()来扫
+描周围的设备。首先我们打印一下我们扫描到的Android设备。发现并没有扫描到ble设备，是不是说手机不算ble设备，或者说部分
+手机版本不支持手机成为ble设备？目前我的测试机一个是Android 4.4的，还有一个是Android 7.0的。
+
+
